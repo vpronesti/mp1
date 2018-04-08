@@ -83,6 +83,14 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTV = findViewById(R.id.question_text_view);
+        mQuestionTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+                mIsCheater = false;
+                updateQuestion();
+            }
+        });
 
         mCheatButton = findViewById(R.id.cheat_button);
         mCheatButton.setOnClickListener(new View.OnClickListener() {
